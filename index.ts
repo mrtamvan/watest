@@ -7,6 +7,7 @@ import { validator } from './helper/Validator';
 
 const app: express.Application = express();
 const wa: WhatsappService = new WhatsappService();
+const port = process.env.PORT || 8080
 
 wa.Initialize();
 app.use(express.json()) 
@@ -74,6 +75,6 @@ app.post('/logout', (req: any, res: any) => {
 });
 
 // run express
-const apiserver = app.listen(80, () => {
+const apiserver = app.listen(port, () => {
     console.log("Example app listening at http://0.0.0.0:80");
 });
